@@ -17,7 +17,7 @@ if (fs.existsSync(envPath)) {
 }
 
 const { GoogleGenerativeAI } = require('@google/genai');
-const { MemoryVectorStore } = require('langchain/vectorstores/memory');
+const { MemoryVectorStore } = require('@langchain/community/vectorstores/memory');
 const { GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI } = require('@langchain/google-genai');
 const { StringOutputParser } = require('@langchain/core/output_parsers');
 const { RunnableSequence } = require('@langchain/core/runnables');
