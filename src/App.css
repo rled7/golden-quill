@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,344 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+-----------------2nd stab at this----------------------------
+GoldenQuill.css */
+
+/* --- General Layout --- */
+.app-container {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+/* --- Main Wrapper (The large outer box) --- */
+.main-card {
+  width: 100%;
+  max-width: 900px;
+  background-color: white;
+  border: 4px solid #1e293b; /* Dark slate color */
+  border-radius: 3rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Header --- */
+.header-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.header-pill {
+  border: 2px solid #1e293b;
+  border-radius: 9999px; /* Pill shape */
+  padding: 0.5rem 2rem;
+  background-color: white;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  color: #1e293b;
+}
+
+/* --- Middle Workspace (Editor + Bank) --- */
+.workspace {
+  display: flex;
+  gap: 1.5rem;
+  height: 500px;
+  margin-bottom: 2rem;
+}
+
+/* Mobile responsive check */
+@media (max-width: 768px) {
+  .workspace {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+/* --- Editor Section (Left) --- */
+.editor-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.editor-box {
+  flex: 1;
+  border: 2px solid #1e293b;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  background-color: #f8fafc; /* Very light slate */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Entry Room Arrow (Decoration) */
+.entry-room-label {
+  position: absolute;
+  left: -60px;
+  top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.title-input-wrapper {
+  border: 2px solid #1e293b;
+  border-radius: 0.5rem;
+  padding: 4px;
+  width: 70%;
+  background-color: white;
+  margin-bottom: 1rem;
+}
+
+.title-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #334155;
+}
+
+.main-textarea {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 2px dashed #cbd5e1;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+  flex-grow: 1;
+}
+
+.main-textarea:focus {
+  border-color: #1e293b;
+}
+
+/* --- Action Buttons (Save & AI) --- */
+.actions-container {
+  position: absolute;
+  bottom: -25px; /* Halfway hanging off */
+  left: -10px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn-save {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: white;
+  border: 2px solid #1e293b;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-save:hover {
+  background-color: #f1f5f9;
+}
+
+/* The Diamond AI Button */
+.btn-diamond {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: 2px solid #1e293b;
+  transform: rotate(45deg); /* Rotates the square */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.btn-diamond:hover {
+  background-color: #fef08a; /* Light yellow */
+  transform: rotate(45deg) scale(1.1);
+}
+
+.diamond-inner {
+  transform: rotate(-45deg); /* Counter-rotates the icon so it is upright */
+}
+
+/* --- Bank Section (Right) --- */
+.bank-section {
+  width: 300px;
+  border: 2px solid #1e293b;
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .bank-section {
+    width: 100%;
+  }
+}
+
+.bank-header {
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.bank-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bank-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.bank-card {
+  flex: 1;
+  border: 2px solid #1e293b;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  background-color: white;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.bank-card:hover {
+  background-color: #f1f5f9;
+}
+
+.btn-delete {
+  border: 2px solid #1e293b;
+  background: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.btn-delete:hover {
+  background-color: #fee2e2;
+}
+
+/* --- Chat Section --- */
+.chat-section {
+  width: 100%;
+  height: 200px;
+  border: 2px solid #1e293b;
+  border-radius: 1rem 1rem 1.5rem 1.5rem; /* Different radius for top/bottom */
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  background-color: #1e293b;
+  color: white;
+  padding: 0.25rem 1rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.chat-history {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.msg-bubble {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  display: inline-block;
+  font-size: 0.9rem;
+  max-width: 80%;
+}
+
+.msg-wrapper {
+  display: flex;
+}
+.msg-wrapper.ai { justify-content: flex-start; }
+.msg-wrapper.user { justify-content: flex-end; }
+
+.chat-input-area {
+  padding: 0.5rem;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  gap: 0.5rem;
+  background: white;
+}
+
+.chat-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0.25rem;
+}
+
+.btn-send {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #475569;
+}
+
+/* --- Notes Footer --- */
+.notes-container {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.notes-label {
+  color: #64748b;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+}
+
+.notes-card {
+  border: 2px solid #1e293b;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  background-color: white;
+  transform: rotate(-1deg);
+}
+
+.handwriting {
+  font-family: 'Courier New', Courier, monospace; /* Fallback for handwriting style */
+  font-size: 1.1rem;
+  color: #334155;
 }
